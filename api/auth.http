@@ -1,0 +1,51 @@
+### WELCOME ENDPOINT
+GET http://localhost:8080
+
+### REGISTER USER
+POST http://localhost:3000/api/signin
+Content-Type: application/json
+
+{
+    "email": "nywthyn004@gmail.com",
+    "name": "Ifeoluwa",
+    "password": "1234"
+}
+
+### LOGIN USER
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "email": "nywthyn004@gmail.com",
+    "password": "1234"
+}
+
+### CREATE 
+POST http://localhost:3000/api/car
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
+
+{
+    "name": "nywthyn004@gmail.com",
+    "model": "1234",
+    "year": "1234",
+    "color": "1234"
+}
+
+### CREATE 
+POST http://localhost:3000/api/dataGenerate
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
+
+{
+    "type": "slack",
+    "count": 100
+}
+
+
+
+### GET
+GET http://localhost:3000/api/cars
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
+
