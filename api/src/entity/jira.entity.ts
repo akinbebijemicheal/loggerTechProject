@@ -29,6 +29,10 @@ export class Jira {
   @Column()
   priority: string;
 
+  
+  @Column("varchar", { length: 65000 })
+  summary: string;
+
   @Column()
   created: string;
 

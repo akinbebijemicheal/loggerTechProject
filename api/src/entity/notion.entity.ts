@@ -23,11 +23,11 @@ export class Notion {
   @Column()
   last_edited_time: string;
 
-  @Column()
-  names: object;
+  @Column('jsonb', {nullable: true})
+  names: object[];
 
-  @Column()
-  assignees: object;
+  @Column('jsonb', {nullable: true})
+  assignees: object[];
 
   @Column()
   priority: string;

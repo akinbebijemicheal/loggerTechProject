@@ -2,7 +2,7 @@ export interface SlackInterface {
   id: string;
   type: string;
   userOriginal: string;
-  text: Text;
+  text: string;
   ts: string;
   channel: string;
   created_at: Date;

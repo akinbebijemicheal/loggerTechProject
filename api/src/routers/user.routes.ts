@@ -5,6 +5,7 @@ import { userControllers } from "../controllers/userControlers";
 Router.get("/users", userControllers.findAll);
 Router.post("/signin", userControllers.create);
 Router.post("/login", userControllers.login);
+Router.post("/logout", userControllers.logout);
 Router.get("/user/:id", userControllers.findById);
 Router.get("/user/:email", userControllers.findByEmail);
 Router.put("/user/:id", userControllers.update);

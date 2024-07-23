@@ -5,6 +5,7 @@ export interface JiraInterface {
   assigneeName: string;
   assigneeEmail: string;
   priority: string;
+  summary: string;
   created: string;
   updated: string;
   created_at: Date;

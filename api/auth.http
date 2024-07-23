@@ -2,7 +2,7 @@
 GET http://localhost:8080
 
 ### REGISTER USER
-POST http://localhost:3000/api/signin
+POST http://localhost:8080/api/signin
 Content-Type: application/json
 
 {
@@ -12,24 +12,93 @@ Content-Type: application/json
 }
 
 ### LOGIN USER
-POST http://localhost:3000/api/login
+POST http://localhost:8080/api/login
 Content-Type: application/json
 
 {
-    "email": "nywthyn004@gmail.com",
+    "email": "nywthymn004@gmail.com",
     "password": "1234"
 }
 
-### CREATE 
-POST http://localhost:3000/api/car
+
+### LOGIN USER
+POST http://localhost:8080/api/logout
+Content-Type: application/json
+
+### CREATE SLACK
+POST http://localhost:3000/api/saveSlackMessage
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
 
 {
-    "name": "nywthyn004@gmail.com",
-    "model": "1234",
-    "year": "1234",
-    "color": "1234"
+    "type": "message",
+    "user": "Udb9AC5E1",
+    "text": "Tricesimus depraedor agnitio auctor trado tamen.",
+    "ts": "1710848656976.000579",
+    "channel": "C9F70B29A"
+  }
+
+### CREATE JIRA
+POST http://localhost:3000/api/jiraIssue
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
+
+  {
+    "id": "JIRA-0",
+    "created": "2023-07-22T17:25:03.784Z",
+    "updated": "2024-03-28T02:53:10.505Z",
+    "status": {
+      "name": "Closed"
+    },
+    "assignee": {
+      "displayName": "Timothy Bogisich",
+      "emailAddress": "Michaela71@yahoo.com"
+    },
+    "priority": {
+      "name": "Low"
+    },
+    "summary": "Viriliter corrigo curto urbanus animadverto."
+  }
+
+### CREATE NOTION
+POST http://localhost:3000/api/notion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
+
+{
+    "object": "page",
+    "id": "cb391e5e-3c5f-4624-8bd4-d96fffa85989",
+    "created_time": "2024-03-03T10:17:29.915Z",
+    "last_edited_time": "2024-04-09T20:59:37.346Z",
+    "properties": {
+      "Name": {
+        "title": [
+          {
+            "text": {
+              "content": "revolutionize impactful bandwidth"
+            }
+          }
+        ]
+      },
+      "Status": {
+        "select": {
+          "name": "Not Started"
+        }
+      },
+      "Priority": {
+        "select": {
+          "name": "Low"
+        }
+      },
+      "Assignee": {
+        "people": [
+          {
+            "name": "Melody Nicolas",
+            "email": "Adriana_Breitenberg74@hotmail.com"
+          }
+        ]
+      }
+    }
 }
 
 ### CREATE 

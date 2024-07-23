@@ -43,7 +43,7 @@ export class UserAdapdter implements UserRepositoryInterface {
     if (!userToDelete) {
       throw new Error("User not found");
     }
-    await userRepository.delete(userToDelete);
+    await userRepository.delete({id: id});
 
     return userToDelete;
   }

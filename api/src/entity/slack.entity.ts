@@ -20,8 +20,8 @@ export class Slack {
   @Column()
   userOriginal: string;
 
-  @Column()
-  text: Text;
+  @Column("varchar", { length: 65000 })
+  text: string;
 
   @Column()
   ts: string;

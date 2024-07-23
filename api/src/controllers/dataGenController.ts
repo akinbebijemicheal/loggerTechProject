@@ -148,7 +148,7 @@ export class dataGenControllers {
         message: "bad request, error processing",
       });
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error:  "server error: " + error });
     }
   }
 

@@ -3,15 +3,23 @@ import dotenv from "dotenv";
 import "reflect-metadata";
 import { AppDataSource } from "./database/config";
 import { Router as userRouter } from "./routers/user.routes";
-import { Router as carRouter } from "./routers/car.routes";
+import { Router as notionRouter } from "./routers/notion.routes";
+import { Router as jiraRouter } from "./routers/jira.routes";
+import { Router as slackRouter } from "./routers/slack.routes";
+var cors = require('cors')
+
+
+
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 3000;
-
+const port = process.env.PORT || 8080;
+app.use(cors()) // Use this after the variable declaration
 app.use(express.json());
 app.use("/api", userRouter);
-app.use("/api", carRouter);
+app.use("/api", notionRouter);
+app.use("/api", jiraRouter);
+app.use("/api", slackRouter);
 AppDataSource.initialize()
   .then(() => {
     console.log("Database connected");
