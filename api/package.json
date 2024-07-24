@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon src/index.ts",
+    "dev": "ts-node src/index.ts",
     "start": "ts-node src/index.ts",
     "build": "tsc",
     "build:lib": "tsc"
