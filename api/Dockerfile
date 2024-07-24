@@ -8,8 +8,8 @@ WORKDIR /src
 COPY package*.json ./
 
 # Install dependencies
- #RUN npm install -g ts-node
- #RUN npm install
+RUN npm install -g ts-node
+RUN npm install
 
 # Copy rest of the application code
 COPY . .
