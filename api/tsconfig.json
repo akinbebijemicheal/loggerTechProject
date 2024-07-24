@@ -23,7 +23,7 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  ts-node": {
+  "ts-node": {
         "esm": true,
         "experimentalSpecifierResolution": "node" 
     },
