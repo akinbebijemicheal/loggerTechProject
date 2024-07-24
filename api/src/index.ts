@@ -1,4 +1,6 @@
-import express from "express";
+const express = require("express")
+
+const app = express ? express() : express_test()
 import dotenv from "dotenv";
 import "reflect-metadata";
 import { AppDataSource } from "./database/config";
@@ -13,7 +15,7 @@ var cors = require('cors')
 
 
 dotenv.config();
-const app = express();
+
 const port = process.env.PORT || 8080;
 app.use(cors()) // Use this after the variable declaration
 app.use(express.json());
