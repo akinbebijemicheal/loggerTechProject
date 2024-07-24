@@ -1,4 +1,6 @@
-import express from "express";
+import express, * as express_test from "express"
+
+const app = express ? express() : express_test()
 import dotenv from "dotenv";
 import "reflect-metadata";
 import { AppDataSource } from "./database/config";
