@@ -8,17 +8,17 @@ WORKDIR /src
 COPY package*.json ./
 
 # Install dependencies
- RUN npm install -g ts-node
- RUN npm install
+ #RUN npm install -g ts-node
+ #RUN npm install
 
 # Copy rest of the application code
 COPY . .
 
 # Set environment variables
-ENV PORT=3000
+ENV PORT=8080
 
 # Expose port
-EXPOSE 3000
+EXPOSE 8080
 
 # Command to run the application
 CMD ["ts-node", "./src/index.ts"]
