@@ -11,6 +11,7 @@ COPY package*.json ./
  RUN npm install -g ts-node nodemon
  RUN npm install
  RUN npm install typescript
+ RUN npm build
 
 
 # Copy rest of the application code
