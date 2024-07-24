@@ -21,4 +21,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Command to run the application
-CMD ["node", "--loader", "ts-node/esm", "./src/index.ts"]
+CMD ["ts-node/esm", "./src/index.ts"]
