@@ -8,9 +8,9 @@ WORKDIR /src
 COPY package*.json ./
 
 # Install dependencies
-# RUN npm install -g ts-node nodemon
-# RUN npm install
-# RUN npm install typescript
+ RUN npm install -g ts-node nodemon
+ RUN npm install
+ RUN npm install typescript
 
 
 # Copy rest of the application code
