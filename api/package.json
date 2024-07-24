@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon src/index.ts",
-    "start": "nodemon src/index.ts",
+    "dev": "ts-node --esm src/index.ts",
+    "start": "ts-node --esm src/index.ts",
     "build": "tsc",
     "build:lib": "tsc"
   },
