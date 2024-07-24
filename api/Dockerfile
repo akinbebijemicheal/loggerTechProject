@@ -20,4 +20,4 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Command to run the application
-CMD ["node", "src/index.ts"]
+CMD ["ts-node", "src/index.ts"]
