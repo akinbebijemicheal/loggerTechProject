@@ -1,4 +1,4 @@
-import express, * as express_test from "express"
+const express = require("express")
 
 const app = express ? express() : express_test()
 import dotenv from "dotenv";
