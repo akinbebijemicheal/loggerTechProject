@@ -15,7 +15,7 @@ var cors = require('cors')
 
 
 dotenv.config();
-const app = express();
+
 const port = process.env.PORT || 8080;
 app.use(cors()) // Use this after the variable declaration
 app.use(express.json());
