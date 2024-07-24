@@ -8,11 +8,9 @@ WORKDIR /src
 COPY package*.json ./
 
 # Install dependencies
- RUN npm install -g ts-node
+ RUN npm install ts-node
  RUN npm install
  RUN npm run build
- RUN npm install typescript
-
 
 # Copy rest of the application code
 COPY . .
