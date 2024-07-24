@@ -1,7 +1,7 @@
 /build
-.env
-/api/.env
-/client/.env
+# .env
+# /api/.env
+# /client/.env
 /client/node_modules
 /api/node_modules
 /node_modules
