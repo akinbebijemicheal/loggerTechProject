@@ -5,6 +5,6 @@ import { dataGenControllers } from "../controllers/dataGenController";
 import { AuthMiddleware } from "../middlewares/authmid";
 
 
-Router.post("/dataGenerate/", AuthMiddleware.isAuthenticated, dataGenControllers.generateData);
+Router.get("/dataGenerate/:count", AuthMiddleware.isAuthenticated, dataGenControllers.generateData);
 
 export { Router };

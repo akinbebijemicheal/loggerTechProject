@@ -12,7 +12,7 @@ export class notionController {
       const notions = await notionService.findAll();
       res.status(200).json(notions);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
   static async create(req: customRequest, res: Response) {
@@ -26,10 +26,10 @@ export class notionController {
 
       const { id, properties } = req.body
       data = req.body
-      data.names =properties?.Name?.title
-      data.status =properties?.Status?.select?.name
-      data.priority =properties?.Priority?.select?.name
-      data.assignees =properties?.Assignee?.people
+      data.names = properties?.Name?.title
+      data.status = properties?.Status?.select?.name
+      data.priority = properties?.Priority?.select?.name
+      data.assignees = properties?.Assignee?.people
       // console.log(properties)
       const notion = await notionService.create(data, req.currentUser.id);
 
@@ -37,7 +37,34 @@ export class notionController {
         notion,
       });
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
+    }
+  }
+  static async createBulk(bulkData: any, userId: any) {
+    try {
+      let data: any;
+
+      for (let datum of bulkData) {
+
+        const notionService = new NotionCore(new NotionAdapter());
+        if (datum.id) {
+          datum.notionId = datum.id
+
+        }
+
+        const { id, properties } = datum
+        data = datum
+        data.names = properties?.Name?.title
+        data.status = properties?.Status?.select?.name
+        data.priority = properties?.Priority?.select?.name
+        data.assignees = properties?.Assignee?.people
+        // console.log(properties)
+        await notionService.create(data, userId);
+
+      }
+      return true
+    } catch (error) {
+     throw new TypeError('Error saving notion data');
     }
   }
   static async update(req: Request, res: Response) {
@@ -50,16 +77,16 @@ export class notionController {
 
       }
 
-      const { id,properties } = req.body
+      const { id, properties } = req.body
       data = req.body
-      data.names =properties?.Name
-      data.status =properties?.Status?.select?.name
-      data.priority =properties?.Priority?.select?.name
-      data.assignees =properties?.Assignee?.people
+      data.names = properties?.Name
+      data.status = properties?.Status?.select?.name
+      data.priority = properties?.Priority?.select?.name
+      data.assignees = properties?.Assignee?.people
       const notion = await notionService.update(req.params.id, data);
       res.status(200).json(notion);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
   static async delete(req: Request, res: Response) {
@@ -69,7 +96,7 @@ export class notionController {
       const notion = await notionService.delete(req.params.id);
       res.status(200).json(notion);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
 
@@ -79,7 +106,7 @@ export class notionController {
       const notion = await notionService.findById(req.params.id);
       res.status(200).json(notion);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
 }

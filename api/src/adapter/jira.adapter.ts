@@ -27,7 +27,7 @@ export class JiraAdapter implements JiraRepositoryInterface {
  
     newJira.user = user as User;
     const jiraRepository = AppDataSource.getRepository(Jira);
-    await jiraRepository.save(newJira);
+    await jiraRepository.save(newJira, { transaction: false });
 
     return newJira;
   }

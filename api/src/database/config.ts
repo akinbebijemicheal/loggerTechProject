@@ -13,4 +13,5 @@ export const AppDataSource = new DataSource({
   entities: [__dirname + "/../**/*.entity{.ts,.js}"],
   synchronize: NODE_ENV === "development" ? true : false,
   logging: NODE_ENV === "development" ? true : false,
+  connectTimeoutMS: 0,
 });

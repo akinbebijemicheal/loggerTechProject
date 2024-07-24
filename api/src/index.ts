@@ -6,6 +6,7 @@ import { Router as userRouter } from "./routers/user.routes";
 import { Router as notionRouter } from "./routers/notion.routes";
 import { Router as jiraRouter } from "./routers/jira.routes";
 import { Router as slackRouter } from "./routers/slack.routes";
+import { Router as dataGenRouter } from "./routers/dataGen.routes"
 var cors = require('cors')
 
 
@@ -20,6 +21,7 @@ app.use("/api", userRouter);
 app.use("/api", notionRouter);
 app.use("/api", jiraRouter);
 app.use("/api", slackRouter);
+app.use("/api", dataGenRouter);
 AppDataSource.initialize()
   .then(() => {
     console.log("Database connected");

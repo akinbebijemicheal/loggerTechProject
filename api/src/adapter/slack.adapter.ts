@@ -24,7 +24,7 @@ export class SlackAdapter implements SlackRepositoryInterface {
    
     newSlack.user = user as User;
     const slackRepository = AppDataSource.getRepository(Slack);
-    await slackRepository.save(newSlack);
+    await slackRepository.save(newSlack, { transaction: false });
 
     return newSlack;
   }

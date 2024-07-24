@@ -12,7 +12,7 @@ export class jiraController {
       const jiras = await jiraService.findAll();
       res.status(200).json(jiras);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
   static async create(req: customRequest, res: Response) {
@@ -24,18 +24,45 @@ export class jiraController {
 
       }
 
-      const { id, status, assignee, priority} = req.body
+      const { id, status, assignee, priority } = req.body
       data = req.body
       data.status = status?.name
       data.assigneeEmail = assignee?.emailAddress
       data.assigneeName = assignee?.displayName
+      data.priority = priority.name
+
+      
       const jira = await jiraService.create(data, req.currentUser.id);
 
       res.status(201).json({
         jira,
       });
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
+    }
+  }
+
+  static async createBulk(bulkData: any, userId: any) {
+    try {
+      let data: any;
+      for (let datum of bulkData) {
+        const jiraService = new JiraCore(new JiraAdapter());
+
+        if (datum.id) {
+          datum.jiraId = datum.id
+
+        }
+
+        const { id, status, assignee, priority } = datum
+        data = datum
+        data.status = status?.name
+        data.assigneeEmail = assignee?.emailAddress
+        data.assigneeName = assignee?.displayName
+       await jiraService.create(data, userId);
+      }
+      return true
+    } catch (error) {
+      throw new TypeError('Error saving jira data');
     }
   }
   static async update(req: Request, res: Response) {
@@ -47,7 +74,7 @@ export class jiraController {
 
       }
 
-      const { id, status, assignee, priority} = req.body
+      const { id, status, assignee, priority } = req.body
       data = req.body
       data.status = status?.name
       data.assigneeEmail = assignee?.emailAddress
@@ -55,7 +82,7 @@ export class jiraController {
       const jira = await jiraService.update(req.params.id, data);
       res.status(200).json(jira);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
   static async delete(req: Request, res: Response) {
@@ -65,7 +92,7 @@ export class jiraController {
       const jira = await jiraService.delete(req.params.id);
       res.status(200).json(jira);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
 
@@ -75,7 +102,7 @@ export class jiraController {
       const jira = await jiraService.findById(req.params.id);
       res.status(200).json(jira);
     } catch (error) {
-      res.status(500).json({ error:  "server error: " + error });
+      res.status(500).json({ error: "server error: " + error });
     }
   }
 }

@@ -25,7 +25,7 @@ export class NotionAdapter implements NotionRepositoryInterface {
 
     newNotion.user = user as User;
     const notionRepository = AppDataSource.getRepository(Notion);
-    await notionRepository.save(newNotion);
+    await notionRepository.save(newNotion, { transaction: false });
 
     return newNotion;
   }

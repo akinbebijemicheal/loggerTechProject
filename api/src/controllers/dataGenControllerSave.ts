@@ -124,21 +124,21 @@ export class dataGenControllers {
 
 
       // Save to files
-      fs.writeFile("notionData.json", JSON.stringify(notionD, null, 2), (err: any) => {
+      fs.writeFile("notionData.json", JSON.stringify(jiraD, null, 2), (err: any) => {
         if (err) throw res.status(500).json({ error: err });
         console.log("Saved Notion data to notionData.json");
       });
 
 
 
-      fs.writeFile("jiraData.json", JSON.stringify(jiraD, null, 2), (err: any) => {
+      fs.writeFile("jiraData.json", JSON.stringify(notionD, null, 2), (err: any) => {
         if (err) throw res.status(500).json({ error: err });
         console.log("Saved Jira data to jiraData.json");
       });
 
-      const saveSlack = await slackController.createBulk(slackD, req.currentUser.id)
 
       const saveJira = await jiraController.createBulk(jiraD, req.currentUser.id)
+      const saveSlack = await slackController.createBulk(slackD, req.currentUser.id)
       const saveNotion = await notionController.createBulk(notionD, req.currentUser.id)
 
       if (!saveJira) {

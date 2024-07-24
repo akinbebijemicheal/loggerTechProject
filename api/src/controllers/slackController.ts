@@ -31,6 +31,23 @@ export class slackController {
       res.status(500).json({ error:  "server error: " + error });
     }
   }
+  static async createBulk(bulkData: any, userId: any) {
+    try {
+      for(let datum of bulkData){
+
+      const slackService = new SlackCore(new SlackAdapter());
+      if(datum.user){
+        datum.userOriginal = datum.user
+
+      }
+      await slackService.create(datum, userId);
+    }
+   return true
+    } catch (error) {
+      throw new TypeError('Error saving slack data');
+
+    }
+  }
   static async update(req: Request, res: Response) {
     try {
       const slackService = new SlackCore(new SlackAdapter());

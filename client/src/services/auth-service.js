@@ -34,7 +34,7 @@ class AuthService {
   }
 
   updateProfile = async (newInfo) => {
-    const updateProfile = "me";
+    const updateProfile = "updateUser";
     return await HttpService.patch(updateProfile, newInfo);
   }
 }

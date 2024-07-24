@@ -16,19 +16,33 @@ POST http://localhost:8080/api/login
 Content-Type: application/json
 
 {
-    "email": "nywthymn004@gmail.com",
+    "email": "nywthyn004@gmail.com",
     "password": "1234"
 }
+
+
+### get me
+GET http://localhost:8080/api/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
+
 
 
 ### LOGIN USER
 POST http://localhost:8080/api/logout
 Content-Type: application/json
 
-### CREATE SLACK
-POST http://localhost:3000/api/saveSlackMessage
+### GENERATE DATA
+GET http://localhost:8080/api/dataGenerate/70
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
+
+
+
+### CREATE SLACK
+POST http://localhost:8080/api/saveSlackMessage
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
 
 {
     "type": "message",
@@ -38,11 +52,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1L
     "channel": "C9F70B29A"
   }
 
-### CREATE JIRA
-POST http://localhost:3000/api/jiraIssue
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
 
+### GET SLACK
+GET http://localhost:8080/api/slackMessages
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
+
+
+### CREATE JIRA
+POST http://localhost:8080/api/jiraIssue
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
+ 
   {
     "id": "JIRA-0",
     "created": "2023-07-22T17:25:03.784Z",
@@ -60,10 +81,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1L
     "summary": "Viriliter corrigo curto urbanus animadverto."
   }
 
-### CREATE NOTION
-POST http://localhost:3000/api/notion
+  
+### GET JIRA
+GET http://localhost:8080/api/jiraIssues
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTY0MDUzMCwiZXhwIjoxNzIxNzI2OTMwfQ.HT1_lw5N1Ok1txvARNDP_WMImuGYfS9gSi8ZvIB3rkI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
+
+
+### CREATE NOTION
+POST http://localhost:8080/api/notion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
 
 {
     "object": "page",
@@ -100,6 +128,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1L
       }
     }
 }
+
+
+### GET Notions
+GET http://localhost:8080/api/notions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0YWZjZWY1LTVlNmEtNDI4Zi1hNzExLTk0N2JhMDAzYTkyOSIsImlhdCI6MTcyMTczMjA0MSwiZXhwIjoxNzIxODE4NDQxfQ.dhYBwbphcsWGl6-sHENRcDJ0fPvAsgDLy76d6hBEXV4
+
 
 ### CREATE 
 POST http://localhost:3000/api/dataGenerate

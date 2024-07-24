@@ -19,6 +19,9 @@ import ResetPassword from "auth/reset-password";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
+import Slack from "layouts/slack";
+import JiraIssues from "layouts/jira";
+import Notions from "layouts/notion";
 
 const routes = [
   {
@@ -31,35 +34,27 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
-    key: "tables",
-    icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/tables",
-    component: <Tables />,
+    name: "Slack Messages",
+    key: "slack",
+    icon: <Icon fontSize="small">messages</Icon>,
+    route: "/slack",
+    component: <Slack />,
   },
   {
     type: "collapse",
-    name: "Billing",
-    key: "billing",
-    icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/billing",
-    component: <Billing />,
+    name: "Jira Issues",
+    key: "jira",
+    icon: <Icon fontSize="small">assignments</Icon>,
+    route: "/jira",
+    component: <JiraIssues />,
   },
   {
     type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-    route: "/rtl",
-    component: <RTL />,
-  },
-  {
-    type: "collapse",
-    name: "Notifications",
-    key: "notifications",
-    icon: <Icon fontSize="small">notifications</Icon>,
-    route: "/notifications",
-    component: <Notifications />,
+    name: "Notion",
+    key: "notion",
+    icon: <Icon fontSize="small">list</Icon>,
+    route: "/notion",
+    component: <Notions />,
   },
   {
     type: "collapse",
@@ -68,14 +63,6 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
-  },
-  {
-    type: "collapse",
-    name: "Sign In",
-    key: "sign-in",
-    icon: <Icon fontSize="small">login</Icon>,
-    route: "/authentication/sign-in",
-    component: <SignIn />,
   },
   {
     type: "examples",
@@ -91,16 +78,17 @@ const routes = [
     key: "user-management",
     icon: <Icon fontSize="small">list</Icon>,
     route: "/user-management",
-    component: <UserManagement />,
+    component: <UserProfile />,
+    // component: <UserManagement />,
   },
-  {
-    type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
-    icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/authentication/sign-up",
-    component: <SignUp />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Sign Up",
+  //   key: "sign-up",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/authentication/sign-up",
+  //   component: <SignUp />,
+  // },
   {
     type: "auth",
     name: "Login",
@@ -117,22 +105,22 @@ const routes = [
     route: "/auth/register",
     component: <Register />,
   },
-  {
-    type: "auth",
-    name: "Forgot Password",
-    key: "forgot-password",
-    icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/auth/forgot-password",
-    component: <ForgotPassword />,
-  },
-  {
-    type: "auth",
-    name: "Reset Password",
-    key: "reset-password",
-    icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/auth/reset-password",
-    component: <ResetPassword />,
-  },
+  // {
+  //   type: "auth",
+  //   name: "Forgot Password",
+  //   key: "forgot-password",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/auth/forgot-password",
+  //   component: <ForgotPassword />,
+  // },
+  // {
+  //   type: "auth",
+  //   name: "Reset Password",
+  //   key: "reset-password",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/auth/reset-password",
+  //   component: <ResetPassword />,
+  // },
 ];
 
 export default routes;

@@ -3,6 +3,7 @@ import { UserAdapdter } from "../adapter/user.adapter";
 import { UserCore } from "../core/user.core";
 import bcrypt from "bcryptjs";
 import { encrypt } from "../helpers/encrypt";
+import { customRequest } from "../interfaces/request.interface";
 
 export class userControllers {
   static async findAll(req: Request, res: Response) {
@@ -27,10 +28,10 @@ export class userControllers {
       res.status(500).json({ error:  "server error: " + error });
     }
   }
-  static async update(req: Request, res: Response) {
+  static async update(req: customRequest, res: Response) {
     try {
       const userService = new UserCore(new UserAdapdter());
-      const user = await userService.update(req.params.id, req.body);
+      const user = await userService.update(req.currentUser.id, req.body);
       res.status(200).json(user);
     } catch (error) {
       res.status(500).json({ error:  "server error: " + error });
@@ -50,6 +51,16 @@ export class userControllers {
     try {
       const userService = new UserCore(new UserAdapdter());
       const user = await userService.findById(req.params.id);
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(500).json({ error:  "server error: " + error });
+    }
+  }
+
+  static async findMe(req: customRequest, res: Response) {
+    try {
+      const userService = new UserCore(new UserAdapdter());
+      const user = await userService.findById(req.currentUser.id);
       res.status(200).json(user);
     } catch (error) {
       res.status(500).json({ error:  "server error: " + error });

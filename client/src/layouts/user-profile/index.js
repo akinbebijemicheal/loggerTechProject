@@ -35,12 +35,12 @@ const UserProfile = () => {
 
   const getUserData = async () => {
     const response = await AuthService.getProfile();
-    if (response.data.id == 1) {
-      setIsDemo(process.env.REACT_APP_IS_DEMO === "true");
-    }
+    // if (response.data.id == 1) {
+    //   setIsDemo(process.env.REACT_APP_IS_DEMO === "true");
+    // }
     setUser((prevUser) => ({
       ...prevUser,
-      ...response.data.attributes,
+      ...response,
       currentPassword: "",
       newPassword: "",
       confirmPassword: "",
