@@ -8,7 +8,7 @@ WORKDIR /src
 COPY package*.json ./
 
 # Install dependencies
- RUN npm install -g ts-node nodemon
+ RUN npm install -g ts-node
  RUN npm install
  RUN npm install typescript
 
