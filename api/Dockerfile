@@ -1,5 +1,5 @@
 # Use official Node.js image as base
-FROM node:14
+FROM node:18
 
 # Set working directory
 WORKDIR /src
@@ -8,16 +8,17 @@ WORKDIR /src
 COPY package*.json ./
 
 # Install dependencies
+RUN npm install -g ts-node
 RUN npm install
 
 # Copy rest of the application code
 COPY . .
 
 # Set environment variables
-ENV PORT=3000
+ENV PORT=8080
 
 # Expose port
-EXPOSE 3000
+EXPOSE 8080
 
 # Command to run the application
-CMD ["node", "src/index.ts"]
+CMD ["ts-node/esm", "./src/index.ts"]

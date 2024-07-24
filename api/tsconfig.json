@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     "lib": ["es2016", "dom"],
     "allowJs": true,
     "checkJs": true /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
 
-    "module": "commonjs" /* Specify what module code is generated. */,
+    "module": "ESNext" /* Specify what module code is generated. */,
     "rootDir": "./src" /* Specify the root folder within your source files. */,
     "typeRoots": [
       "node_modules/@types"
@@ -23,6 +23,10 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
+  "ts-node": {
+        "esm": true,
+        "experimentalSpecifierResolution": "node" 
+    },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
