@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon src/index.ts",
-    "start": "node src/index.ts",
+    "start": "nodemon src/index.ts",
     "build": "tsc",
     "build:lib": "tsc"
   },
